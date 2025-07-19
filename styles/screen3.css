@@ -37,3 +37,16 @@
   align-items: center;
   border-radius: 50px;
 }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 30px;
+  padding: 30px 100px;
+  justify-content: center;
+}
+
+.cards-grid img {
+  height: 300px;
+  width: 200px;
+}

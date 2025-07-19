@@ -40,11 +40,21 @@
         <div class="players-container">
           <div class="player-container">
             <h2>Player 1</h2>
-            <input name="name1" type="text" placeholder="Enter Name ..." />
+            <input
+              id="player1"
+              name="name1"
+              type="text"
+              placeholder="Enter Name ..."
+            />
           </div>
           <div class="player-container">
             <h2>Player 2</h2>
-            <input name="name2" type="text" placeholder="Enter Name ..." />
+            <input
+              id="player2"
+              name="name2"
+              type="text"
+              placeholder="Enter Name ..."
+            />
           </div>
         </div>
         <div class="difficult-container">
@@ -71,11 +81,12 @@
             <p>Cards won: <span id="player2-score">0</span></p>
           </div>
         </div>
-        <div class="cards-grid" id="cards-container">
-          <!-- Cards will be injected here -->
-        </div>
+        <div class="cards-grid" id="cards-container"></div>
       </div>
     </main>
     <script type="text/javascript" src="js/start.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/card.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
   </body>
 </html>
