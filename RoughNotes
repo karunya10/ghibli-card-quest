@@ -1,0 +1,17 @@
+1. Design Class: Game Logic => a=>score,
+                               b=>difficulty
+                               c=>Cards
+                               d=>currentPlayer
+                               e=>remainingLimit
+                               f=>players,array
+                               
+                               Methods : flipCard(card) 
+                                         compareCards(card1,card2)
+                                         updateScore(currentPlayer)
+                                         changeCurrentPlayer()
+
+
+                 Card => img , Id 
+                 Player => name,Id
+                 setName ()
+                 getName ()
