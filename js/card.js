@@ -3,6 +3,5 @@ class Card {
     this.id = id;
     this.image = image;
     this.isFlipped = false;
-    this.isMatched = false;
   }
 }
