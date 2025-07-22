@@ -4,7 +4,7 @@ class Game {
     this.player2 = player2;
     this.cards = cards;
     this.currentPlayer = player1.id;
-    this.score = { [player1.id]: 0, [player2.id]: 0 }; // explain
+    this.score = { [player1.id]: 0, [player2.id]: 0 };
     this.remainingTime = 14;
     this.oneFlip = false;
     this.intervalId;
@@ -20,8 +20,8 @@ class Game {
       const cardContainer = document.createElement("div");
 
       const imgElement = document.createElement("img");
-      imgElement.id = i;
-      imgElement.src = "../images/cards/guess.png";
+
+      imgElement.src = CARDS + "/guess.png";
 
       cardContainer.appendChild(imgElement);
       cardsContainer.appendChild(cardContainer);
@@ -35,7 +35,6 @@ class Game {
     //Start the timer
     if (this.oneFlip === false) {
       this.startTimer();
-      // this.oneFlip = true;
     }
     //Update image of card
     imgElement.src = card.image;
@@ -59,6 +58,7 @@ class Game {
           this.resetTimers();
           this.changeCurrentPlayer();
           this.chosenCards = [];
+          this.oneFlip = false;
         }, 1000);
       }
     }
@@ -66,8 +66,9 @@ class Game {
   }
   flipCardsBack() {
     this.chosenCards.forEach((card) => {
-      const imgElement = document.querySelector(`img[src = "${card.image}"]`);
-      imgElement.src = "../images/cards/guess.png";
+      // img[src = "./images/cards/0.png"]
+      const imgElement = document.querySelector(`img[src = "${card.image}"]`); // attribute selector
+      imgElement.src = CARDS + "/guess.png";
     });
   }
   compareCards() {
@@ -97,6 +98,8 @@ class Game {
       time.innerText = this.remainingTime--;
       if (this.remainingTime < 0) {
         this.changeCurrentPlayer();
+        this.oneFlip = false;
+
         this.resetTimers();
         this.flipCardsBack();
         clearInterval(this.intervalId);
@@ -112,7 +115,6 @@ class Game {
   changeCurrentPlayer() {
     const player1Info = document.querySelector("#player1-info");
     const player2Info = document.querySelector("#player2-info");
-    this.oneFlip = false;
     this.currentPlayer =
       this.currentPlayer === this.player1.id
         ? this.player2.id
@@ -151,7 +153,7 @@ class Game {
     document.querySelector("#game-third-screen").style.display = "none";
     document.querySelector("#game-fourth-screen").style.display = "flex";
 
-    document.body.style.backgroundImage = "url('../images/happy.png')";
+    document.body.style.backgroundImage = `url('${HAPPY}')`;
     const winner = document.querySelector("#winner");
     const loser = document.querySelector("#loser");
     this.launchConfetti();
